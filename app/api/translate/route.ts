@@ -4,6 +4,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const { text, targetLang, sourceLang } = body;
+    console.log("body = ",body);
     const translate = (await import('google-translate-api-x')).default;
     const result = await translate(text, {
       to: targetLang,
